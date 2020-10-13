@@ -1,3 +1,20 @@
 #heading {
   color: red;
 }
+
+.form-group {
+  margin-top: 5%;
+  font-size: 20px;
+}
+
+.weather-container {
+  margin-left: 2%;
+}
+
+#search-form {
+  background-color: rgb(233, 233, 233);
+}
+
+.chosen-city-card {
+  margin-top: 5%;
+}
