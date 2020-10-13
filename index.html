@@ -33,7 +33,7 @@
               <label for="city-search">Search for a city:</label>
               <input type="text" class="form-control" id="city-search" />
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" id="citySubmit">
               <svg
                 width="1em"
                 height="1em"
@@ -52,13 +52,18 @@
                 />
               </svg>
             </button>
-            <div class="city-list"></div>
           </form>
         </div>
         <div class="col-md-9">
           <div class="chosen-city-card">
             <div class="card border-primary mb-3">
-              <h1 id="chosen-city"></h1>
+              <div class="city-list">
+                <div id="cityChosen"></div>
+                <div id="tempChosen"></div>
+                <div id="humidityChosen"></div>
+                <div id="windChosen"></div>
+                <div id="uvChosen"></div>
+              </div>
             </div>
           </div>
           <h2>5-Day Forecast:</h2>
