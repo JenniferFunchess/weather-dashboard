@@ -93,7 +93,7 @@ $(document).ready(function () {
       var queryURL2 =
         "https://api.openweathermap.org/data/2.5/forecast?q=" +
         chosenCity +
-        "&cnt=5&units=imperial&appid=" +
+        "&units=imperial&appid=" +
         APIKey;
 
       $.ajax({
@@ -101,23 +101,33 @@ $(document).ready(function () {
         method: "GET",
       }).then(function (response) {
         console.log(response);
-        $("#date1").text(response.list[0].dt_txt);
-        $("#date2").text(response.list[1].dt_txt);
-        $("#date3").text(response.list[2].dt_txt);
-        $("#date4").text(response.list[3].dt_txt);
-        $("#date5").text(response.list[4].dt_txt);
+        $("#date1").text(response.list[5].dt_txt);
+        $("#date2").text(response.list[13].dt_txt);
+        $("#date3").text(response.list[21].dt_txt);
+        $("#date4").text(response.list[29].dt_txt);
+        $("#date5").text(response.list[37].dt_txt);
 
-        $("#temp1").text("Temp: " + response.list[0].main.temp + "°F");
-        $("#temp2").text("Temp: " + response.list[1].main.temp + "°F");
-        $("#temp3").text("Temp: " + response.list[2].main.temp + "°F");
-        $("#temp4").text("Temp: " + response.list[3].main.temp + "°F");
-        $("#temp5").text("Temp: " + response.list[4].main.temp + "°F");
+        $("#temp1").text("Temp: " + response.list[5].main.temp + "°F");
+        $("#temp2").text("Temp: " + response.list[13].main.temp + "°F");
+        $("#temp3").text("Temp: " + response.list[21].main.temp + "°F");
+        $("#temp4").text("Temp: " + response.list[29].main.temp + "°F");
+        $("#temp5").text("Temp: " + response.list[37].main.temp + "°F");
 
-        $("#humidity1").text("Humidity: " + response.daily[0].humidity + "%");
-        $("#humidity2").text("Humidity: " + response.daily[1].humidity + "%");
-        $("#humidity3").text("Humidity: " + response.daily[2].humidity + "%");
-        $("#humidity4").text("Humidity: " + response.daily[3].humidity + "%");
-        $("#humidity5").text("Humidity: " + response.daily[4].humidity + "%");
+        $("#humidity1").text(
+          "Humidity: " + response.list[5].main.humidity + "%"
+        );
+        $("#humidity2").text(
+          "Humidity: " + response.list[13].main.humidity + "%"
+        );
+        $("#humidity3").text(
+          "Humidity: " + response.list[21].main.humidity + "%"
+        );
+        $("#humidity4").text(
+          "Humidity: " + response.list[29].main.humidity + "%"
+        );
+        $("#humidity5").text(
+          "Humidity: " + response.list[37].main.humidity + "%"
+        );
       });
     });
   }
