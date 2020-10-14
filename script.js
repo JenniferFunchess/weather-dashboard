@@ -91,11 +91,9 @@ $(document).ready(function () {
       });
 
       var queryURL2 =
-        "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-        lat +
-        "&lon=" +
-        long +
-        "&exclude=daily&cnt=5&units=imperial&appid=" +
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
+        chosenCity +
+        "&cnt=5&units=imperial&appid=" +
         APIKey;
 
       $.ajax({
@@ -103,17 +101,17 @@ $(document).ready(function () {
         method: "GET",
       }).then(function (response) {
         console.log(response);
-        $("#date1").text(response.daily[0].dt);
-        $("#date2").text(response.daily[1].dt);
-        $("#date3").text(response.daily[2].dt);
-        $("#date4").text(response.daily[3].dt);
-        $("#date5").text(response.daily[4].dt);
+        $("#date1").text(response.list[0].dt_txt);
+        $("#date2").text(response.list[1].dt_txt);
+        $("#date3").text(response.list[2].dt_txt);
+        $("#date4").text(response.list[3].dt_txt);
+        $("#date5").text(response.list[4].dt_txt);
 
-        $("#temp1").text("Temp: " + response.daily[0].temp.day + "°F");
-        $("#temp2").text("Temp: " + response.daily[1].temp.day + "°F");
-        $("#temp3").text("Temp: " + response.daily[2].temp.day + "°F");
-        $("#temp4").text("Temp: " + response.daily[3].temp.day + "°F");
-        $("#temp5").text("Temp: " + response.daily[4].temp.day + "°F");
+        $("#temp1").text("Temp: " + response.list[0].main.temp + "°F");
+        $("#temp2").text("Temp: " + response.list[1].main.temp + "°F");
+        $("#temp3").text("Temp: " + response.list[2].main.temp + "°F");
+        $("#temp4").text("Temp: " + response.list[3].main.temp + "°F");
+        $("#temp5").text("Temp: " + response.list[4].main.temp + "°F");
 
         $("#humidity1").text("Humidity: " + response.daily[0].humidity + "%");
         $("#humidity2").text("Humidity: " + response.daily[1].humidity + "%");
