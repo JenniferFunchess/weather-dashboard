@@ -33,23 +33,3 @@
   font-size: 35px;
   font-weight: bold;
 }
-
-.easy {
-  background-color: lightgreen;
-}
-
-.medium {
-  background-color: yellow;
-}
-
-.extraMedim {
-  background-color: orange;
-}
-
-.high {
-  background-color: red;
-}
-
-.extraHigh {
-  background-color: purple;
-}

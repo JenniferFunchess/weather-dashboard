@@ -1,23 +1,26 @@
 $(document).ready(function () {
   console.log("ready!");
   $("#popUp").hide();
+  $("#pastList").hide();
 
   var APIKey = "c4fae5edaad45a9b13c98adafcd08019";
   var chosenCity = $("#citySearch").val().trim();
 
+  //   This section saves the chosen city to a button below the search bar
   function renderList() {
     $("#citySearch").empty();
-
-    for (var i = 0; i < chosenCity.length; i++) {
-      var a = $("<ul>");
-      a.addClass("list");
-      a.attr("data-name", chosenCity);
-      a.text(chosenCity);
-      $("#pastList").append(a);
-      console.log(pastList);
-    }
+    var chosenCity = $("#citySearch").val().trim();
+    var a = $("<button>");
+    // a.addClass("city-btn");
+    a.attr("data-name", chosenCity);
+    a.text(chosenCity + "<br>");
+    $("#pastList").append(a);
+    localStorage.setItem(chosenCity);
   }
 
+  $("#pastList").val(localStorage.getItem(chosenCity));
+
+  //   This section calls in the chosen city and places info on the page
   function cityContainer() {
     var chosenCity = $("#citySearch").val().trim();
     console.log(chosenCity);
@@ -132,9 +135,11 @@ $(document).ready(function () {
     });
   }
 
+  //   This section is for the submit button response
   $("#citySubmit").on("click", function (event) {
     event.preventDefault();
     $("#popUp").show();
+    $("#pastList").show();
     cityContainer();
     renderList();
   });
